@@ -1,6 +1,3 @@
-pool:
-  vmImage: 'Hosted Ubuntu 1604'
-
 container: maven:latest
 
 steps:
