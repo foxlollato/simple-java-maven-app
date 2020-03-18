@@ -1,0 +1,7 @@
+pool:
+  vmImage: 'Draft pool'
+
+container: maven
+
+steps:
+- script: mvn -B -DskipTests clean package
