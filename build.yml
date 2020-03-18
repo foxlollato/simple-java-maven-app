@@ -1,5 +1,7 @@
-container: 
-  image: maven:latest
+pool:
+  vmImage: 'Hosted Ubuntu 1604'
+
+container: maven:latest
 
 steps:
 - script: mvn -B -DskipTests clean package
