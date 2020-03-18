@@ -1,4 +1,4 @@
-container: foxlollato/gitmaven:latest
+container: maven:latest
 
 steps:
 - script: mvn -B -DskipTests clean package
