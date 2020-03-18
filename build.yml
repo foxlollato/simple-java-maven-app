@@ -1,4 +1,5 @@
-container: maven:latest
+container: 
+  image: maven:latest
 
 steps:
 - script: mvn -B -DskipTests clean package
