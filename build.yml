@@ -1,4 +1,4 @@
 container: maven:latest
 
 steps:
-- script: mvn -B -DskipTests clean package
+- script: sudo apt install git -y && mvn -B -DskipTests clean package
