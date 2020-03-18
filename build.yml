@@ -1,4 +1,4 @@
-container: maven:latest
+container: foxlollato/gitmaven:latest
 
 steps:
-- script: sudo apt install git -y && mvn -B -DskipTests clean package
+- script: mvn -B -DskipTests clean package
