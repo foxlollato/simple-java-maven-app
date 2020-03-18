@@ -10,10 +10,6 @@ resources:
 
     image: maven:3-jdk-8
 
-pool:
-
-  name: Generic pool
-
 container: mvn3_jdk8
 
 steps:
