@@ -77,6 +77,9 @@ jobs:
       overwrite: true 
 
 - job: deployRelease
+  
+  steps:
+    
   - task: Bash@3
     inputs:
       targetType: 'inline'
