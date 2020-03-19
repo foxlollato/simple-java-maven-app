@@ -60,7 +60,7 @@ jobs:
 
       ArtifactName: 'drop'
 
-      publishLocation: 'FilePath'
+      publishLocation: '/opt/build/'
 
 - job: copyArtifactToDeployServer
   
@@ -70,7 +70,7 @@ jobs:
   
     inputs: 
       sshEndpoint: deployServerSshServiceConnection
-      sourceFolder: '$(Build.ArtifactStagingDirectory)'
+      sourceFolder: '/opt/build/)'
       contents: '*.jar' 
       targetFolder: /opt/release/
       cleanTargetFolder: false 
