@@ -12,78 +12,84 @@ resources:
 
   - container: dind
     
-  image: docker:dind
+    image: docker:dind
 
-pool:
+jobs:
 
-  name: Draft pool
-
-container: mvn3_jdk8
-
-steps:
-
-- task: Maven@3
-
-  inputs:
-
-    mavenPomFile: 'pom.xml'
-
-    mavenOptions: '-Xmx3072m'
-
-    jdkArchitectureOption: 'x64'
-
-    publishJUnitResults: true
-
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-
-    goals: 'package'
-
-- task: CopyFiles@2
-
-  inputs:
-
-    SourceFolder: '$(agent.builddirectory)/s/target'
-
-    Contents: '**'
-
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'  
-
-- task: PublishBuildArtifacts@1
-
-  inputs:
-
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-
-    ArtifactName: 'drop'
-
-    publishLocation: 'Container'
-
-pool:
-
-  name: Draft pool
+- job: Build
   
-container: dind
+  pool:
 
-steps:
+    name: Draft pool
 
-- task: Docker@2
+  container: mvn3_jdk8
 
-  inputs:
+  steps:
+
+  - task: Maven@3
+
+    inputs:
+
+      mavenPomFile: 'pom.xml'
+
+      mavenOptions: '-Xmx3072m'
+
+      jdkArchitectureOption: 'x64'
+
+      publishJUnitResults: true
+
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+
+      goals: 'package'
+
+  - task: CopyFiles@2
+
+    inputs:
+
+      SourceFolder: '$(agent.builddirectory)/s/target'
+
+      Contents: '**'
+
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'  
+
+  - task: PublishBuildArtifacts@1
+
+    inputs:
+
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
+      ArtifactName: 'drop'
+
+      publishLocation: 'Container'
+
+- job: dockerBuildAndPublish
   
-    command: login
-  
-    containerRegistry: foxDockerHubServiceConnection
+  pool:
 
-- task: Docker@2
+    name: Draft pool
 
-  inputs:
+  container: dind
 
-    command: buildAndPush
+  steps: 
+    
+  - task: Docker@2
 
-    Dockerfile: ./Dockerfile
+    inputs:
+    
+      command: login
+    
+      containerRegistry: foxDockerHubServiceConnection
 
-    buildContext: '$(Build.ArtifactStagingDirectory)'
+  - task: Docker@2
 
-    repository: foxlollato/java-maven-hw
+    inputs:
 
-    tags: sometag1
+      command: buildAndPush
+
+      Dockerfile: ./Dockerfile
+
+      buildContext: '$(Build.ArtifactStagingDirectory)'
+
+      repository: foxlollato/java-maven-hw
+
+      tags: sometag1
