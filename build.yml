@@ -54,13 +54,13 @@ steps:
 
     publishLocation: 'Container'
 
-    -task: Docker@2
+-task: Docker@2
 
-    inputs:
+  inputs:
   
-      command: login
+    command: login
   
-      containerRegistry: foxDockerHubServiceConnection
+    containerRegistry: foxDockerHubServiceConnection
 
 - task: Docker@2
 
