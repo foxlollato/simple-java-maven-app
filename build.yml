@@ -60,15 +60,9 @@ jobs:
 
       ArtifactName: 'drop'
 
-      publishLocation: 'FilePath'
-
-      targetPath: '/opt/build'
-
-- job: copyArtifactToDeployServer
+      publishLocation: 'Container'
   
-  steps:
-  
-  - task: CopyFilesOverSSH@0
+      - task: CopyFilesOverSSH@0
   
     inputs: 
       sshEndpoint: deployServerSshServiceConnection
@@ -77,6 +71,11 @@ jobs:
       targetFolder: /opt/release/
       cleanTargetFolder: false 
       overwrite: true 
+
+#- job: copyArtifactToDeployServer
+  
+#  steps: 
+  
 
 # - job: dockerBuildAndPublish
   
