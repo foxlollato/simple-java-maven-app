@@ -53,3 +53,25 @@ steps:
     ArtifactName: 'drop'
 
     publishLocation: 'Container'
+
+    -task: Docker@2
+
+    inputs:
+  
+      command: login
+  
+      containerRegistry: foxDockerHubServiceConnection
+
+-task: Docker@2
+
+  inputs:
+
+    command: buildAndPush
+
+    Dockerfile: ./Dockerfile
+
+    buildContext: '$(Build.ArtifactStagingDirectory)'
+
+    repository: foxlollato/java-maven-hw
+
+    tags: sometag1
