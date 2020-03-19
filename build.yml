@@ -73,7 +73,7 @@ jobs:
       sourceFolder: '$(Build.ArtifactStagingDirectory)'
       contents: '*.jar' 
       targetFolder: /opt/release/
-      cleanTargetFolder: true 
+      cleanTargetFolder: false 
       overwrite: true 
 
 # - job: dockerBuildAndPublish
