@@ -62,7 +62,7 @@ jobs:
 
       publishLocation: 'Container'
   
-      - task: CopyFilesOverSSH@0
+  - task: CopyFilesOverSSH@0
   
     inputs: 
       sshEndpoint: deployServerSshServiceConnection
