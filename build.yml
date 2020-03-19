@@ -58,6 +58,10 @@ steps:
 
     publishLocation: 'Container'
 
+pool:
+
+  name: Draft pool
+  
 container: dind
 
 steps:
