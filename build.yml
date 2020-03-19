@@ -71,7 +71,7 @@ jobs:
     inputs: 
       sshEndpoint: deployServerSshServiceConnection
       sourceFolder: '$(Build.ArtifactStagingDirectory)'
-      contents: '**/*.jar' 
+      contents: '*.jar' 
       targetFolder: /opt/release/
       cleanTargetFolder: true 
       overwrite: true 
