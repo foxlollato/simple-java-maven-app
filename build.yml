@@ -12,7 +12,7 @@ resources:
 
   - container: dind
     
-    image: docker:latest
+    image: jeroenknoops/docker-docker-dind-bash:latest
 
 jobs:
 
