@@ -68,7 +68,7 @@ jobs:
   
   - task: CopyFilesOverSSH@0
     inputs: 
-      sshEndpoint: 192.168.0.113
+      sshEndpoint: deployServerSshServiceConnection
       sourceFolder: '$(Build.ArtifactStagingDirectory)'
       contents: '**/*.jar' 
       targetFolder: /opt/release/
