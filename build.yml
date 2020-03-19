@@ -62,15 +62,15 @@ jobs:
 
       publishLocation: 'Container'
   
-  - task: CopyFilesOverSSH@0
+  # - task: CopyFilesOverSSH@0
   
-    inputs: 
-      sshEndpoint: deployServerSshServiceConnection
-      sourceFolder: '$(Build.ArtifactStagingDirectory)'
-      contents: '*.jar' 
-      targetFolder: /opt/release/
-      cleanTargetFolder: false 
-      overwrite: true 
+  #   inputs: 
+  #     sshEndpoint: deployServerSshServiceConnection
+  #     sourceFolder: '$(Build.ArtifactStagingDirectory)'
+  #     contents: '*.jar' 
+  #     targetFolder: /opt/release/
+  #     cleanTargetFolder: false 
+  #     overwrite: true 
 
 
 #  steps: 
