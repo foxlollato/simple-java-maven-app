@@ -1,4 +1,8 @@
-trigger:
+variables:
+  
+  artifactName: my-app-1.0-SNAPSHOT 
+
+  trigger:
 
   - master
 
@@ -67,12 +71,17 @@ jobs:
     inputs: 
       sshEndpoint: deployServerSshServiceConnection
       sourceFolder: '$(Build.ArtifactStagingDirectory)'
-      contents: '*.jar' 
+      contents: '$(artifactName).jar' 
       targetFolder: /opt/release/
       cleanTargetFolder: false 
       overwrite: true 
 
-#- job: copyArtifactToDeployServer
+- job: deployRelease
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: java -jar /opt/release/$(artifactName).jar
+
   
 #  steps: 
   
