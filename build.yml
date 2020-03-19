@@ -42,9 +42,7 @@ steps:
 
     Contents: '**'
 
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-  
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'  
 
 - task: PublishBuildArtifacts@1
 
