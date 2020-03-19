@@ -2,7 +2,7 @@ variables:
   
   artifactName: my-app-1.0-SNAPSHOT 
 
-  trigger:
+trigger:
 
   - master
 
@@ -79,7 +79,7 @@ jobs:
 - job: deployRelease
   
   steps:
-    
+
   - task: Bash@3
     inputs:
       targetType: 'inline'
