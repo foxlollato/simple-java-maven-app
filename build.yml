@@ -12,7 +12,7 @@ resources:
 
   - container: dind
     
-    image: docker:docker
+    image: docker:latest
 
 jobs:
 
